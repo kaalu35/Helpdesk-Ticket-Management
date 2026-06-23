@@ -1,1 +1,72 @@
 
+Design Document
+Application: Helpdesk Ticket Management
+
+1. System Overview
+Helpdesk Ticket Management is a static demo web application built with HTML, CSS, and JavaScript. It demonstrates support ticket creation, ticket tracking, search/filter, priority display, and status movement.
+2. High-Level Flow
+Employee raises ticket -> Ticket created with New status -> Manager/agent reviews ticket -> Agent works on ticket -> Ticket moves to Resolved -> Ticket is Closed
+3. UI Design
+UI Section	Purpose
+Header	Shows application name and purpose.
+Summary Cards	Shows Total Tickets, Open Tickets, Resolved, and Critical counts.
+Search and Filter	Allows user to search tickets and filter by status.
+Ticket Table	Shows ticket list with all important ticket details.
+Create Ticket Form	Allows user to create a new support ticket.
+Action Button	Moves ticket to the next status.
+
+4. Application Architecture
+Layer	Technology / File	Responsibility
+UI Layer	src/index.html	Defines screen layout, table, summary cards, and form.
+Style Layer	src/styles.css	Controls layout, badges, cards, table, and responsive design.
+Logic Layer	src/app.js	Handles data rendering, filtering, ticket creation, and status update.
+Sample Data	data/sample-tickets.json	Provides sample records for understanding data structure.
+
+
+
+5. Data Model
+Field	Type	Required	Description
+ticketId	String	Yes	Unique ticket ID such as HD-1001.
+title	String	Yes	Short issue title.
+requester	String	Yes	Employee who raised the ticket.
+category	Picklist	Yes	Network, Hardware, Application, Email, Access.
+priority	Picklist	Yes	Low, Medium, High, Critical.
+assignedTo	String	No	Support agent assigned to the ticket.
+status	Picklist	Yes	New, In Progress, Resolved, Closed.
+createdDate	Date	Yes	Ticket creation date.
+description	Text Area	Yes	Detailed issue description.
+
+6. Business Rules
+Rule ID	Rule
+BR-001	Newly created ticket should always start with New status.
+BR-002	Open tickets are tickets with New or In Progress status.
+BR-003	Critical priority should be highlighted clearly.
+BR-004	Status movement follows New -> In Progress -> Resolved -> Closed.
+BR-005	Mandatory fields must be completed before ticket creation.
+BR-006	Search should check ticket ID, title, requester, category, priority, status, and description.
+
+7. Expected API Design for Future Backend
+Method	Endpoint	Purpose
+POST	/api/tickets	Create a new support ticket.
+GET	/api/tickets	Fetch ticket list.
+GET	/api/tickets/{id}	Fetch ticket details.
+PATCH	/api/tickets/{id}/status	Update ticket status.
+PATCH	/api/tickets/{id}/assign	Assign ticket to support agent.
+GET	/api/tickets/summary	Fetch dashboard summary.
+
+8. Salesforce Object Mapping
+Salesforce Object	Purpose
+Helpdesk Ticket custom object	Main support ticket record.
+Ticket Comment custom object	Ticket comments and resolution notes.
+Support Agent custom object	Support agent master data.
+SLA Policy custom object	SLA configuration based on priority/category.
+
+9. Error Handling
+Scenario	Expected Behavior
+Mandatory field missing	Browser validation should stop ticket creation.
+No matching search result	Show No tickets found message.
+Closed ticket action clicked	Status should remain Closed.
+Invalid data in production API	Backend should return validation error.
+
+10. File Structure
+Helpdesk_Ticket_Management_App.zip contains: README.md, src/index.html, src/styles.css, src/app.js, and data/sample-tickets.json.
