@@ -1,1 +1,68 @@
 
+Document
+Application: Helpdesk Ticket MRequirement anagement
+
+1. Business Objective
+The organization needs a simple Helpdesk Ticket Management application where employees can raise support tickets and the support team can track, assign, prioritize, resolve, and close those tickets.
+2. Business Problem
+Support requests are handled through email or chat and may be missed.
+There is no single place to check ticket status and owner.
+Critical issues are not highlighted properly.
+Managers do not have a quick summary of open, resolved, and critical tickets.
+Ticket history and SLA tracking are difficult in manual process.
+3. User Roles
+Role	Responsibility
+Employee / Requester	Raises support tickets and checks status.
+Support Agent	Works on assigned tickets and updates status.
+Support Manager	Assigns tickets, monitors priority, and checks pending work.
+Admin	Maintains categories, agents, and configuration in production.
+
+4. Functional Requirements
+FR ID	Requirement	Description
+FR-001	Create Ticket	User should create a ticket with title, requester, category, priority, assigned agent, and description.
+FR-002	View Ticket List	System should show all tickets with ID, title, requester, category, priority, assigned agent, status, and action.
+FR-003	Search Ticket	User should search by ticket ID, title, requester, category, priority, status, or description.
+FR-004	Filter Ticket	User should filter tickets by status: New, In Progress, Resolved, and Closed.
+FR-005	Update Status	Support user should move ticket through status flow: New -> In Progress -> Resolved -> Closed.
+FR-006	Priority Display	System should show priority badges for Low, Medium, High, and Critical.
+FR-007	Dashboard Summary	System should show total tickets, open tickets, resolved tickets, and critical tickets.
+FR-008	Validation	System should not create ticket when mandatory fields are missing.
+FR-009	Default Status	Newly created ticket should start with status New.
+FR-010	No Result Message	If search/filter returns no tickets, system should show a clear no records message.
+
+5. Mandatory Fields
+Title
+Requester
+Category
+Priority
+Description
+6. Status Values
+Status	Meaning
+New	Ticket is created but not yet started.
+In Progress	Support agent is working on the ticket.
+Resolved	Issue is fixed by support team.
+Closed	Ticket is fully closed after confirmation.
+
+7. Priority Values
+Priority	Meaning
+Low	Minor issue with low business impact.
+Medium	Normal issue affecting user productivity.
+High	Important issue needing quick support.
+Critical	Business-blocking issue needing urgent action.
+
+8. Non-Functional Requirements
+Category	Requirement
+Performance	Ticket list should load quickly for at least 1,000 records in production.
+Security	Employees create tickets; agents/managers update ticket status.
+Usability	UI should be simple and readable for non-technical users.
+Audit	Status updates should be tracked in production.
+Availability	System should be available during office support hours.
+
+9. Sample Real-Time Scenario
+Employee Anjali Rao raises a ticket: VPN not connecting. The ticket is created as HD-1001 with High priority and New status. Support manager assigns it to Ravi Kumar. Ravi changes status to In Progress, fixes the VPN issue, marks it Resolved, and finally the ticket is Closed.
+10. Out of Scope for Demo
+Backend database storage
+Login/authentication
+Email notification
+SLA timer automation
+File attachment upload
