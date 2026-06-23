@@ -1,0 +1,46 @@
+[
+  {
+    "ticketId": "HD-1001",
+    "title": "VPN not connecting",
+    "requester": "Anjali Rao",
+    "category": "Network",
+    "priority": "High",
+    "assignedTo": "Ravi Kumar",
+    "status": "In Progress",
+    "createdDate": "2026-06-18",
+    "description": "VPN disconnects after login."
+  },
+  {
+    "ticketId": "HD-1002",
+    "title": "Laptop screen flickering",
+    "requester": "Manoj R",
+    "category": "Hardware",
+    "priority": "Medium",
+    "assignedTo": "Priya N",
+    "status": "New",
+    "createdDate": "2026-06-19",
+    "description": "Screen flickers while using Teams."
+  },
+  {
+    "ticketId": "HD-1003",
+    "title": "Payroll portal access issue",
+    "requester": "Kavya S",
+    "category": "Application",
+    "priority": "Critical",
+    "assignedTo": "Suresh P",
+    "status": "Resolved",
+    "createdDate": "2026-06-17",
+    "description": "Unable to access payroll portal before salary cut-off."
+  },
+  {
+    "ticketId": "HD-1004",
+    "title": "Email not syncing",
+    "requester": "Rahul M",
+    "category": "Email",
+    "priority": "Low",
+    "assignedTo": "Meena K",
+    "status": "Closed",
+    "createdDate": "2026-06-15",
+    "description": "Outlook mobile sync issue."
+  }
+]
