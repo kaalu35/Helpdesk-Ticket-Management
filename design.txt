@@ -1,7 +1,7 @@
 
 Design Document
 Application: Helpdesk Ticket Management
-
+..
 1. System Overview
 Helpdesk Ticket Management is a static demo web application built with HTML, CSS, and JavaScript. It demonstrates support ticket creation, ticket tracking, search/filter, priority display, and status movement.
 2. High-Level Flow
